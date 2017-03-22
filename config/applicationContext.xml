@@ -78,9 +78,28 @@
 		<property name="dataSource" ref="mysqlDataSource"></property>
 	</bean>
 
-    
-	<!-- 基于注解的事务 -->
+    <!-- 基于注解的事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+	
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="accept*" propagation="REQUIRED" />
+			<tx:method name="reject*" propagation="REQUIRED" />
+			<tx:method name="execute*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="recover*" propagation="REQUIRED" />
+			<tx:method name="sync*" propagation="REQUIRED" />
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+    
+	
 
 	<!-- <import resource="quartz.xml"/> -->
 <!-- 启用缓存注解功能 -->

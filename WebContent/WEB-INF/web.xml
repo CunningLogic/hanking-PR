@@ -59,6 +59,6 @@
     <location>/static/error.html</location>
   </error-page>
   <welcome-file-list>
-    <welcome-file>/WEB-INF/jsp/hello.jsp</welcome-file>
+    <welcome-file>/WEB-INF/jsp/parkingStatus.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
